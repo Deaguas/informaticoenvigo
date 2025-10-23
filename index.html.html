@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GR7THG25V6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GR7THG25V6');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominio en Venta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .sale-banner {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .sale-banner h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sale-banner p {
+            font-size: 1em;
+            margin: 3px 0;
+        }
+        
+        .contact-email {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .iframe-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            height: 80vh;
+            position: relative;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            color: #667eea;
+            text-align: center;
+        }
+        
+        .refresh-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="sale-banner">
+        <h1>🏷️ DOMINIO EN VENTA 🏷️</h1>
+        <p>Este dominio está disponible para su compra</p>
+        <div class="contact-email">📧 Contacto: dominio@ejemplo.com</div>
+    </div>
+    
+    <div class="content">
+        <div class="iframe-container">
+            <div class="loading">
+                <p style="font-size: 1.3em; margin-bottom: 20px;">Redirigiendo a un informático en Vigo...</p>
+                <p id="countdown" style="font-size: 2.5em; font-weight: bold; color: #667eea;">3</p>
+                <p style="margin-top: 20px; font-size: 0.9em; color: #666;">O haz clic abajo para cambiar de sitio</p>
+            </div>
+        </div>
+    </div>
+    
+    <button class="refresh-btn" onclick="redirectToRandomSite()">🔄 Cambiar sitio</button>
+    
+    <script>
+        // Lista de sitios de informáticos en Vigo
+        const sites = [
+            'https://www.datafonte.es/',
+            'https://dualthink.es',
+            'https://ceivigo.com',
+            'https://www.oficies.com/',
+            'https://infoprec.com/',
+            'https://ip-seis.com/',
+            'https://tecnofon.es',
+            'https://www.pcmarketordenadores.es/',
+            'https://www.turbo-pc.net/',
+            'https://www.sertecvgo.com',
+            'https://alexliberasat.com',
+            'https://reprosat.net/',
+            'https://reciga.es/',
+            'https://informaticardsi.gal/',
+            'https://microatis.es',
+            'https://info-sat.es'
+        ];
+        
+        let countdownInterval;
+        
+        function redirectToRandomSite() {
+            // Limpiar intervalo anterior si existe
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            // Seleccionar sitio aleatorio
+            const randomIndex = Math.floor(Math.random() * sites.length);
+            const selectedSite = sites[randomIndex];
+            
+            // Contador de 3 segundos
+            let seconds = 3;
+            const countdownElement = document.getElementById('countdown');
+            
+            countdownInterval = setInterval(function() {
+                seconds--;
+                countdownElement.textContent = seconds;
+                
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = selectedSite;
+                }
+            }, 1000);
+        }
+        
+        // Iniciar redirección automática al cargar la página
+        redirectToRandomSite();
+    </script>
+</body>
+</html>
